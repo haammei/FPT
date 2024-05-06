@@ -13,12 +13,9 @@ To install and run the application, follow these steps:
 ## Usage Guide
 1. Log in to the system using your account.
 2. Search, add, edit, delete Famacies information.
-3. Manage the list of employees and customers.
-4. View reports and statistics on the system's activities.
+3. Manage the list of category and products
 
-## Authors
-- Nguyễn Văn A (nguyenvana@gmail.com)
-- Trần Thị B (tranthib@gmail.com)
+
 
 ## License
 This is open-source software released under the MIT license. See the LICENSE file for more details.
