@@ -1,0 +1,41 @@
+using Assignment1.Models;
+using Assignment1.Repository;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+
+namespace Assignment1.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly DataContext _dataContext;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, DataContext context)
+        {
+            _logger = logger;
+            _dataContext = context;
+        }
+
+        public IActionResult Index()
+        {
+            var products = _dataContext.products.Include("Category").ToList();
+            return View(products);
+        }
+
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error(int statuscode)
+        {
+            if(statuscode == 404)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+            
+        }
+    }
+}
